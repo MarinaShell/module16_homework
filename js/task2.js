@@ -1,21 +1,24 @@
-/*****************************************************************************/
-/*функция, которая принимает в качестве аргументов строку и объект, а затем 
-проверяет, есть ли у переданного объекта свойство с данным именем. 
-Функция должна возвращать true или false.*/
-function isPropertyInObj(obj, str){
-    for (let key in obj)
-    {
-        if (obj.hasOwnProperty(key))
-        {
-            if (key == str)
-                return true;
-        }
-    }
-    return false;
+/*json строка*/
+const jSonString = 
+`{
+  "name":"Anton",
+  "age":36,
+  "skills":["Javascript","HTML","CSS"],
+  "salary":80000
+}`
+/*парсим в JS*/
+const data = JSON.parse(jSonString);
+
+/*создаем объект*/
+const result = {
+  name: data.name,
+  age: data.age,
+  skills: data.skills,
+  salary: data.salary
 }
 
-/*for testing
-const obj = {a:1, b:2, c:3};
-const str = "c";
-console.log(isPropertyInObj(obj, str));
-*/
+/*выводим объект*/
+console.log(result);
+
+/*создаем JSON из объекта и выводим в консоль*/
+console.log(JSON.stringify(result)); 

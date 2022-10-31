@@ -18,6 +18,7 @@ const xmlString = `<list>
   </student>
 </list>`;
 
+/*получение данных*/
 const parser = new DOMParser();
 const xmlDom = parser.parseFromString(xmlString, "text/xml");
 /*массив*/
