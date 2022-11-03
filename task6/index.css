@@ -1,0 +1,24 @@
+.button{
+    color:white;
+    background-color:rgb(4, 45, 122);
+    padding: 10px 30px;
+    margin-top: 20px;
+    margin-left : 40px;
+    font-size: 20px;
+}
+
+.input{
+    color:rgb(0, 0, 0);
+    background-color:white;
+    font-size: 20px;
+}
+
+.text{
+  font-size: 20px;
+  color:blue;
+}
+
+.image{
+  max-width:100px;
+  max-height:100px;
+}

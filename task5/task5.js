@@ -1,17 +1,14 @@
-function showList(json){
-    json.forEach(element => {
-    
- });
-}
+/*начало программы*/
+document.addEventListener("DOMContentLoaded", pageLoaded);
 
-
+/************************************************************************/
+/*фцнкция на загрузку страницы*/
 function pageLoaded(){
     const btn = document.querySelector('.button');
-    const ouput = document.querySelector('.output');
     
     btn.addEventListener('click', ()=>{
         const number = document.querySelector('.input');
-        /*настраиваем наш запрос*/
+        /*Настраиваем наш запрос*/
         const options = {
            method: 'GET', 
            headers:{
@@ -21,9 +18,56 @@ function pageLoaded(){
         fetch(`https://jsonplaceholder.typicode.com/users/${number.value}/todos`, options)
         .then(response => response.json())
         .then((json) => {
-            showList(json)
+            showList(json, number)
             })
     });    
 }
 
-document.addEventListener("DOMContentLoaded", pageLoaded);
+/************************************************************************/
+/*выводим список задач*/
+function showList(json, number){
+    removeElements();
+
+    if (Object.keys(json).length == 0)
+    {
+        let p = document.createElement('p');
+        p.textContent = `Пользователь с указанным id ${number.value} не найден`; 
+        p.className = 'text';
+        document.body.append(p);
+        return;   
+    }   
+    let p = document.createElement('p');
+    p.textContent = `Список задач для userId = ${number.value}`;
+    p.className = 'text';
+    document.body.append(p);
+
+    let ul = document.createElement('ul');
+    document.body.append(ul);
+    json.forEach(element => {
+        let li = document.createElement('li');
+        li.textContent = element.title;
+        if (element.completed === true)
+            li.className = 'ready';
+        else
+            li.className = 'not_ready';
+        ul.append(li);
+ });
+}
+
+/************************************************************************/
+/*удаляем элементы*/
+function removeElements(){
+    
+    let elemsP = document.querySelectorAll('p');
+    let i = 0;
+    for (let elem of elemsP) {
+           if (i!==0)
+             elem.remove();   
+            i++;
+    }
+
+    let elemsUL = document.querySelectorAll('ul');
+    for (let elem of elemsUL) {
+           elem.remove();    
+    }
+}

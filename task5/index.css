@@ -1,0 +1,34 @@
+.button{
+    color:white;
+    background-color:rgb(4, 45, 122);
+    padding: 20px 20px;
+    margin-left: 50px;
+    font-size: 20px;
+    border:0; 
+}
+
+.button:hover{
+  background-color:rgb(7, 55, 182);
+}
+.input{
+    color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.ready{
+    color:rgb(154, 154, 154);
+    text-decoration:line-through;
+    font-size: 20px;
+}
+
+.not_ready{
+    color:rgb(0, 0, 0);
+    text-decoration:none;
+    font-size: 20px;
+}
+
+.text{
+  font-size: 30px;
+  color: rgb(0, 0, 255);
+}
